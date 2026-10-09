@@ -1,619 +1,527 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Mahsa Vatanparast, MD | AI & Medical Imaging Researcher</title>
-
+<title>Mahsa Vatanparast, MD | Trustworthy AI for Medical Imaging</title>
+<meta name="description" content="Mahsa Vatanparast, MD: physician-researcher working on uncertainty quantification and conformal prediction for trustworthy medical imaging AI.">
+<meta property="og:title" content="Mahsa Vatanparast, MD">
+<meta property="og:description" content="Physician-researcher working on uncertainty-aware, trustworthy AI for medical imaging.">
+<meta property="og:image" content="images/Mahsa.jpg">
+<meta name="theme-color" content="#FBF9FB">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mahsa Vatanparast",
+  "honorificSuffix": "MD",
+  "jobTitle": "Physician-Researcher",
+  "alumniOf": "Mashhad University of Medical Sciences",
+  "knowsAbout": ["Trustworthy AI", "Uncertainty quantification", "Conformal prediction", "Medical imaging"],
+  "sameAs": [
+    "https://scholar.google.com/citations?user=rEmIJDIAAAAJ",
+    "https://www.linkedin.com/in/mahsa-vatanparast-24314b2a7/",
+    "https://github.com/Mahsa-Vatanparast"
+  ]
+}
+</script>
 <style>
+  :root{
+    --bg:#FBF9FB;
+    --surface:#FFFFFF;
+    --ink:#261B2C;        /* aubergine */
+    --muted:#6B5E70;
+    --line:#E9E1EA;
+    --accent:#9B1B42;     /* deep crimson */
+    --accent-soft:#F7E6EC;
+    --calm:#2F6B5E;       /* interval green */
+    --calm-soft:#E3F0EC;
+    --display:'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+    --body:'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#17121B; --surface:#201A25; --ink:#EEE6F0; --muted:#A898AD; --line:#33293A;
+      --accent:#EB7C9C; --accent-soft:#3A2030; --calm:#7CC4B1; --calm-soft:#1C3330;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#17121B; --surface:#201A25; --ink:#EEE6F0; --muted:#A898AD; --line:#33293A;
+    --accent:#EB7C9C; --accent-soft:#3A2030; --calm:#7CC4B1; --calm-soft:#1C3330;
+  }
 
-body {
-    margin: 0;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    color: #222;
-    line-height: 1.7;
-    background: #ffffff;
-}
-.profile-photo {
-    width:160px;
-    height:160px;
-    border-radius:50%;
-    object-fit:cover;
-    object-position:center 10%;
-    margin-bottom:20px;
-    position:relative;
-    left:8px;
-}
-header {
-    padding: 70px 20px;
-    text-align: center;
-    background: #f7f9fc;
-}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{transition:none !important;} }
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased;}
+  a{color:var(--accent); text-decoration:none; background-image:linear-gradient(currentColor,currentColor); background-size:0 1px; background-position:0 100%; background-repeat:no-repeat; transition:background-size .2s;}
+  a:hover{background-size:100% 1px;}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:3px;}
+  strong{font-weight:600;}
+  p{margin:0 0 14px; max-width:66ch;}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 28px;}
 
-header h1 {
-    font-size: 46px;
-    margin-bottom: 10px;
-}
+  /* ---------- top bar ---------- */
+  .bar{position:sticky; top:0; z-index:5; background:color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  .bar .wrap{display:flex; align-items:center; justify-content:space-between; gap:20px; height:60px;}
+  .mark{font-family:var(--display); font-weight:700; font-size:22px; color:var(--ink); background:none; letter-spacing:.01em;}
+  .bar nav{display:flex; gap:22px; overflow-x:auto; scrollbar-width:none;}
+  .bar nav::-webkit-scrollbar{display:none;}
+  .bar nav a{color:var(--muted); font-size:14px; font-weight:500; white-space:nowrap;}
+  .bar nav a:hover{color:var(--ink);}
+  .theme{background:none; border:none; color:var(--muted); cursor:pointer; padding:6px; border-radius:50%; display:grid; place-items:center;}
+  .theme:hover{color:var(--ink); background:var(--line);}
+  .theme svg{width:18px; height:18px;}
 
-header h2 {
-    font-size: 22px;
-    font-weight: normal;
-    color: #555;
-}
+  /* ---------- hero ---------- */
+  .hero{display:grid; grid-template-columns:300px minmax(0,1fr); gap:56px; align-items:center; padding:64px 0 56px;}
+  .hero img{width:100%; aspect-ratio:1; object-fit:cover; border-radius:28px 28px 28px 120px; display:block;}
+  .hero h1{font-family:var(--display); font-weight:600; font-size:clamp(44px,6vw,68px); line-height:1; margin:0 0 6px; letter-spacing:-.01em;}
+  .hero .role{font-size:17px; color:var(--muted); margin:0 0 22px;}
+  .hero .pitch{font-family:var(--display); font-size:26px; line-height:1.35; font-weight:500; margin:0 0 26px; max-width:30em;}
+  .actions{display:flex; flex-wrap:wrap; gap:10px;}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 18px; border-radius:999px; font-size:14.5px; font-weight:600; border:1px solid var(--line); color:var(--ink); background:var(--surface); transition:border-color .15s, background .15s;}
+  .btn:hover{border-color:var(--accent); background-size:0 0;}
+  .btn.primary{background:var(--accent); border-color:var(--accent); color:var(--surface);}
+  .btn.primary:hover{background:color-mix(in srgb, var(--accent) 85%, var(--ink));}
+  .btn svg{width:16px; height:16px;}
 
-.links a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #1a73e8;
-}
+  /* ---------- sections: heading gutter + content ---------- */
+  section{display:grid; grid-template-columns:220px minmax(0,1fr); gap:40px; padding:52px 0; border-top:1px solid var(--line); scroll-margin-top:70px;}
+  section > h2{font-family:var(--display); font-weight:600; font-size:30px; line-height:1.1; margin:0; color:var(--ink);}
+  section > h2 small{display:block; font-family:var(--body); font-size:13.5px; font-weight:500; color:var(--muted); margin-top:8px; line-height:1.4;}
+  h3{font-size:16px; font-weight:600; margin:0 0 4px; line-height:1.45;}
+  .muted{color:var(--muted);}
 
+  /* ---------- LVEF interval demo ---------- */
+  .demo{margin-top:24px; background:var(--surface); border:1px solid var(--line); border-radius:20px; padding:26px 26px 22px;}
+  .demo h3{font-family:var(--display); font-size:22px; font-weight:600; margin-bottom:2px;}
+  .demo .sub{font-size:14px; color:var(--muted); margin:0 0 22px;}
+  .scale{position:relative; height:88px; margin:0 6px;}
+  .zones{position:absolute; left:0; right:0; top:30px; height:16px; display:flex; border-radius:8px; overflow:hidden;}
+  .zones span{height:100%;}
+  .z1{background:color-mix(in srgb, var(--accent) 22%, transparent);}
+  .z2{background:color-mix(in srgb, var(--accent) 10%, transparent);}
+  .z3{background:var(--calm-soft);}
+  .zl{position:absolute; top:52px; font-size:12.5px; color:var(--muted); transform:translateX(-50%); white-space:nowrap;}
+  .tick{position:absolute; top:26px; width:1px; height:24px; background:var(--muted); opacity:.5;}
+  .interval{position:absolute; top:34px; height:8px; background:var(--calm); border-radius:4px; transition:left .15s, width .15s;}
+  .interval.risky{background:var(--accent);}
+  .point{position:absolute; top:24px; width:4px; height:28px; margin-left:-2px; background:var(--ink); border-radius:2px;}
+  .point-label{position:absolute; top:0; transform:translateX(-50%); font-size:13px; font-weight:700; white-space:nowrap;}
+  .ctrl{display:grid; grid-template-columns:auto 1fr auto; gap:14px; align-items:center; margin-top:10px; font-size:14.5px;}
+  .ctrl output{font-weight:700; font-variant-numeric:tabular-nums; min-width:3em; text-align:right;}
+  input[type=range]{width:100%; accent-color:var(--accent);}
+  .verdict{margin-top:16px; padding:12px 16px; border-radius:12px; font-size:15px; background:var(--calm-soft);}
+  .verdict.risky{background:var(--accent-soft);}
+  .demo .note{font-size:13px; color:var(--muted); margin:12px 0 0;}
 
-nav {
-    text-align: center;
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
-    position: sticky;
-    top: 0;
-    background: white;
-}
+  /* ---------- selected work ---------- */
+  .works{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .work{background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:20px 22px; display:flex; flex-direction:column;}
+  .work h3 a{color:var(--ink);}
+  .work .venue{font-size:13.5px; color:var(--muted); margin:2px 0 10px;}
+  .work p{font-size:14.5px; margin:0;}
+  .ribbon{margin-top:14px; align-self:flex-start; font-size:13px; font-weight:600; color:var(--accent); background:var(--accent-soft); padding:4px 12px; border-radius:999px;}
+  .work .more{margin-top:12px; display:flex; flex-wrap:wrap; gap:14px; font-size:14px;}
+  .work.wide{grid-column:1 / -1;}
 
-nav a {
-    margin: 0 12px;
-    text-decoration: none;
-    color: #333;
-}
+  /* ---------- timeline ---------- */
+  .tl{list-style:none; margin:0; padding:0; position:relative;}
+  .tl::before{content:""; position:absolute; left:5px; top:8px; bottom:8px; width:2px; background:var(--line);}
+  .tl li{position:relative; padding:0 0 22px 32px;}
+  .tl li:last-child{padding-bottom:0;}
+  .tl li::before{content:""; position:absolute; left:0; top:7px; width:12px; height:12px; border-radius:50%; background:var(--bg); border:2px solid var(--muted);}
+  .tl li.star::before{background:var(--accent); border-color:var(--accent);}
+  .tl .when{font-size:13px; font-weight:600; color:var(--muted); display:block;}
+  .tl .what{display:block;}
+  .tl .what em{color:var(--muted); font-style:normal;}
 
+  .plain{margin:0; padding-left:18px;}
+  .plain li{margin-bottom:10px;}
+  .plain li::marker{color:var(--accent);}
+  .sub-h{font-family:var(--display); font-size:22px; font-weight:600; margin:32px 0 12px;}
 
-section {
-    max-width: 950px;
-    margin: auto;
-    padding: 45px 20px;
-}
+  /* ---------- publications ---------- */
+  .pub-filter{display:inline-flex; border:1px solid var(--line); border-radius:999px; padding:3px; margin-bottom:24px; background:var(--surface);}
+  .pub-filter button{font:inherit; font-size:14px; font-weight:600; border:none; background:none; color:var(--muted); padding:6px 16px; border-radius:999px; cursor:pointer;}
+  .pub-filter button[aria-pressed="true"]{background:var(--ink); color:var(--bg);}
+  .year{font-family:var(--display); font-size:26px; font-weight:600; color:var(--accent); margin:26px 0 6px;}
+  .year:first-of-type{margin-top:0;}
+  .pubs{list-style:none; margin:0; padding:0;}
+  .pubs li{padding:12px 0; border-bottom:1px dashed var(--line); font-size:15px;}
+  .pubs li:last-child{border-bottom:none;}
+  .pubs .t{display:block; font-weight:600; color:var(--ink); line-height:1.5;}
+  a.t{background-size:0 1px;}
+  .pubs .a{display:block; font-size:14px; color:var(--muted); margin-top:3px;}
+  .pubs .a b{color:var(--ink); font-weight:700;}
+  .pubs .j{font-style:italic;}
+  .uq{display:inline-block; font-size:11.5px; font-weight:700; color:var(--calm); background:var(--calm-soft); padding:1px 8px; border-radius:999px; margin-left:6px; vertical-align:2px;}
+  .hide-nonuq li:not([data-uq]){display:none;}
+  .hide-nonuq .year.empty{display:none;}
 
+  /* ---------- skills + refs ---------- */
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 18px;}
+  .chips span{font-size:14px; padding:5px 13px; border-radius:999px; background:var(--surface); border:1px solid var(--line);}
+  .chips.key span{border-color:var(--accent); color:var(--accent); background:var(--accent-soft);}
+  .skill-h{font-size:13.5px; font-weight:600; color:var(--muted); margin:0 0 8px;}
+  .refs{display:grid; gap:14px;}
+  .ref{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:6px 20px; align-items:center; padding:18px 0; border-bottom:1px solid var(--line);}
+  .ref:last-child{border-bottom:none;}
+  .ref h3{font-family:var(--display); font-size:22px; font-weight:600; margin:0;}
+  .ref p{grid-column:1; margin:0; font-size:14px; color:var(--muted);}
+  .ref .ico{grid-column:2; grid-row:1 / span 2; display:flex; gap:8px;}
+  .ico a{width:38px; height:38px; border-radius:50%; display:grid; place-items:center; border:1px solid var(--line); color:var(--ink); background-size:0 0;}
+  .ico a:hover{border-color:var(--accent); color:var(--accent);}
+  .ico svg{width:17px; height:17px;}
 
-h3 {
-    font-size: 28px;
-    margin-bottom: 20px;
-}
+  footer{border-top:1px solid var(--line); padding:28px 0 48px; color:var(--muted); font-size:14px;}
 
-
-.card {
-    margin-bottom: 25px;
-}
-
-
-.highlight {
-    background: #f7f9fc;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-
-footer {
-    text-align:center;
-    padding:30px;
-    background:#f7f9fc;
-    color:#666;
-}
-
+  /* ---------- responsive ---------- */
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr; gap:28px; padding:36px 0 40px;}
+    .hero img{max-width:240px;}
+    .hero .pitch{font-size:22px;}
+    section{grid-template-columns:1fr; gap:18px; padding:40px 0;}
+    .works{grid-template-columns:1fr;}
+    .bar nav{display:none;}
+  }
+  @media (max-width:520px){
+    .wrap{padding:0 16px;}
+    .demo{padding:20px 16px;}
+    .ctrl{grid-template-columns:1fr auto;}
+    .ctrl label{grid-column:1 / -1;}
+    .zl{font-size:11px;}
+    .ref{grid-template-columns:1fr;}
+    .ref .ico{grid-column:1; grid-row:auto; margin-top:8px;}
+  }
 </style>
-
 </head>
-
-
 <body>
 
-
-<header>
-<img src="profile.jpg" alt="Mahsa Vatanparast" class="profile-photo">
-<h1>Mahsa Vatanparast, MD</h1>
-
-<h2>
-AI Researcher in Medical Imaging, Neuroimaging & Trustworthy Artificial Intelligence
-</h2>
-
-<div class="links">
-<a href="https://scholar.google.com/citations?user=rEmIJDIAAAAJ&hl=en">Google Scholar</a>
-<a href="https://www.linkedin.com/in/mahsa-vatanparast-24314b2a7/">LinkedIn</a>
-<a href="https://github.com/Mahsa-Vatanparast">GitHub</a>
-</div>
-
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="#top">M. Vatanparast</a>
+    <nav aria-label="Sections">
+      <a href="#focus">Research</a>
+      <a href="#selected">Selected work</a>
+      <a href="#honors">Honors</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#talks">Talks</a>
+      <a href="#references">References</a>
+    </nav>
+    <button class="theme" id="themeToggle" type="button" aria-label="Switch to dark mode">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"/></svg>
+    </button>
+  </div>
 </header>
 
+<main class="wrap" id="top">
 
-<nav>
-
-<a href="#about">About</a>
-<a href="#research">Research</a>
-<a href="#publications">Publications</a>
-<a href="#awards">Awards</a>
-<a href="#skills">Skills</a>
-<a href="#contact">Contact</a>
-
-</nav>
-
-
-<section id="about">
-
-<section id="about">
-<h3>About Me</h3>
-
-<p>
-I am a Medical Doctor and AI researcher working at the intersection of
-medical imaging, neuroimaging, and trustworthy artificial intelligence.
-My research focuses on developing reliable and uncertainty-aware AI
-methods for medical image analysis and clinical applications.
-</p>
-
-<p>
-My work spans conformal prediction, uncertainty quantification,
-deep learning, semi-supervised learning, radiomics, and multimodal
-AI, with a particular interest in neuroimaging and radiology.
-I aim to develop AI systems that are not only accurate, but also
-reliable, interpretable, and clinically meaningful.
-</p>
-
-<p>
-I am particularly interested in research at the intersection of
-<strong>artificial intelligence, medical imaging, and clinical medicine</strong>,
-and in translating methodological advances in AI into practical
-healthcare applications.
-</p>
-
-</section>
-
-<section id="experience">
-
-<section id="research">
-<h3>Research Interests</h3>
-
-<div class="card highlight">
-    <h4>Trustworthy AI & Uncertainty Quantification</h4>
-    <p>
-        Developing reliable and uncertainty-aware artificial intelligence
-        methods for medical imaging, with a focus on conformal prediction,
-        uncertainty quantification, and selective prediction.
-    </p>
-</div>
-
-<div class="card highlight">
-    <h4>Medical Imaging & Neuroimaging</h4>
-    <p>
-        Applying deep learning and computer vision to medical image analysis,
-        with a particular focus on neuroimaging, glioma imaging, segmentation,
-        and clinical decision support.
-    </p>
-</div>
-
-<div class="card highlight">
-    <h4>Radiogenomics & Imaging Biomarkers</h4>
-    <p>
-        Investigating imaging-based prediction of molecular and genetic
-        characteristics of tumors, including IDH mutation, 1p/19q
-        codeletion, MGMT methylation, and other clinically relevant biomarkers.
-    </p>
-</div>
-
-<div class="card highlight">
-    <h4>Multimodal & Vision-Language AI</h4>
-    <p>
-        Exploring multimodal artificial intelligence and vision-language
-        models for integrating medical images with clinical information
-        and supporting radiology workflows.
-    </p>
-</div>
-
-<div class="card highlight">
-    <h4>Semi-Supervised & Reliable Machine Learning</h4>
-    <p>
-        Developing machine learning approaches that address limited
-        annotation, distributional uncertainty, and reliability challenges
-        in medical imaging datasets.
-    </p>
-</div>
-    <section id="experience">
-<h3>Research Experience</h3>
-
-<div class="card">
-    <h4>Artificial Intelligence in Medical Imaging</h4>
-    <p>
-        Developed and evaluated machine learning and deep learning methods
-        for medical image analysis, including conformal prediction,
-        uncertainty quantification, semi-supervised learning, and
-        voxel-wise uncertainty estimation.
-    </p>
-</div>
-
-<div class="card">
-    <h4>Neuroimaging & Radiomics</h4>
-    <p>
-        Conducted research on MRI-based analysis of gliomas and other
-        neurological conditions, including radiomics, deep learning,
-        segmentation, and prediction of molecular biomarkers such as
-        IDH mutation and 1p/19q codeletion.
-    </p>
-</div>
-
-<div class="card">
-    <h4>Clinical & Translational Research</h4>
-    <p>
-        Contributed to clinical research in liver transplantation,
-        neurovascular disease, traumatic brain injury, and infectious
-        complications, using clinical datasets and registry-based
-        study designs.
-    </p>
-</div>
-
-</section>
-<section id="publications">
-<h3>Publications</h3>
-    <div class="card">
-    <h4>
-        <a href="https://arxiv.org/abs/2609.23241" target="_blank">
-            UQMIA: An Open, Hands-On Tutorial on Uncertainty Quantification in Medical Imaging Analysis with Large Language Model-Based Assessment of Educational Content
+  <div class="hero">
+    <img src="images/Mahsa.jpg" alt="Portrait of Mahsa Vatanparast">
+    <div>
+      <h1>Mahsa Vatanparast, MD</h1>
+      <p class="role">Physician-researcher, Mashhad University of Medical Sciences</p>
+      <p class="pitch">I work on uncertainty quantification so that medical imaging AI can tell clinicians when its answer isn't good enough to rely on.</p>
+      <div class="actions">
+        <a class="btn primary" href="files/Mahsa_Vatanparast_CV.pdf" download>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg>
+          Download CV
         </a>
-    </h4>
-    <p>
-        Benyamin Gheiji, Danial Elyassirad, <strong>Mahsa Vatanparast</strong>,
-        Meysam Tavakoli, Shahriar Faghani.
-        <br>
-        <em>arXiv</em>. 2026.
-    </p>
-</div>
-    <div class="card">
-    <h4>
-        <a href="https://link.springer.com/article/10.1007/s10278-026-02179-5" target="_blank">
-            CONRep: Uncertainty-Aware Vision-Language Report Drafting Using Conformal Prediction
-        </a>
-    </h4>
-    <p>
-        Danial Elyassirad, Benyamin Gheiji, <strong>Mahsa Vatanparast</strong>,
-        Amir Mahmoud Ahmadzadeh, Seyed Amir Asef Agah, Mana Moassefi,
-        Meysam Tavakoli, Shahriar Faghani.
-        <br>
-        <em>Journal of Imaging Informatics in Medicine</em>. 2026.
-    </p>
-</div>
-    <div class="card">
-    <h4>
-        <a href="https://link.springer.com/article/10.1007/s10278-026-01878-3" target="_blank">
-            CONReg: Uncertainty-Aware Medical Image Registration Using Conformal Prediction
-        </a>
-    </h4>
-    <p>
-        Benyamin Gheiji, Danial Elyassirad, <strong>Mahsa Vatanparast</strong>,
-        Amir Mahmoud Ahmadzadeh, Shahriar Faghani, Meysam Tavakoli.
-        <br>
-        <em>Journal of Imaging Informatics in Medicine</em>. 2026.
-    </p>
-</div>
-     <div class="card">
-    <h4>
-        <a href="https://www.ajnr.org/content/early/2026/04/24/ajnr.A9363.abstract" target="_blank">
-            NeuroAIHub: An AI-Driven Framework for Automated Curation and Discovery of Neuroradiology Datasets
-        </a>
-    </h4>
-    <p>
-        Benyamin Gheiji, Sina Moradi, <strong>Mahsa Vatanparast</strong>,
-        Sana Shokrani, Mohammad Aref Bagherzadeh, Danial Elyassirad,
-        Oluwatobi Iyanuoluwa Akinmuleya, Sina Goodarzi, Mahsa Heidari-Foroozan,
-        Mana Moassefi, Jeffrey D. Rudie, Evan Calabrese, R. Jain,
-        Shahriar Faghani.
-        <br>
-        <em>American Journal of Neuroradiology</em>. 2026.
-    </p>
-</div>
-    <div class="card">
-    <h4>
-        <a href="https://link.springer.com/article/10.1007/s10278-025-01580-w" target="_blank">
-            Predicting IDH mutation in glioma patients using deep learning algorithms with conformal prediction
-        </a>
-    </h4>
-    <p>
-        Danial Elyassirad, Benyamin Gheiji, <strong>Mahsa Vatanparast</strong>,
-        Amir Mahmoud Ahmadzadeh, Mohammad Masoudi, Mobin Gholami,
-        Mana Moassefi, Shahriar Faghani.
-        <br>
-        <em>Journal of Imaging Informatics in Medicine</em>. 2026.
-    </p>
-</div>
-    <div class="card">
-    <h4>
-        <a href="https://www.sciencedirect.com/science/article/pii/S0899707126001099" target="_blank">
-            Radiomics and deep learning models for predicting glioma p53 status: A diagnostic accuracy systematic review and meta-analysis of magnetic resonance imaging studies
-        </a>
-    </h4>
-    <p>
-        Amir Mahmoud Ahmadzadeh, Mohammad Amin Ashoobi, Nima Broomand Lomer,
-        <strong>Mahsa Vatanparast</strong>, Benyamin Gheiji, Danial Elyassirad,
-        Shahriar Faghani.
-        <br>
-        <em>Clinical Imaging</em>. 2026;135:110817.
-    </p>
-</div>
-<div class="card">
-    <h4>
-        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13144621/" target="_blank">
-            Hyperventilation-Induced High-Amplitude Rhythmic Slowing and Its Impact on Migraine Frequency in Children: A Retrospective Observational Cohort Study
-        </a>
-    </h4>
-    <p>
-        Mahmoud Mohammadi, Reza Shervin Badv, Zahra Rezaei, Mahmoud Reza Ashrafi,
-        Gholam Reza Zamani, Morteza Heidari, <strong>Mahsa Vatanparast</strong>,
-        Hosein Eslamiyeh, Najmeh Ahangari, Bita Barazandeh Shirvan,
-        Mehran Beiraghi Toosi.
-        <br>
-        <em>Iranian Journal of Child Neurology</em>.
-    </p>
-</div>
-    <div class="card">
-    <h4>
-        <a href="https://www.ajnr.org/content/46/12/2553.abstract" target="_blank">
-            CONSeg: Voxelwise Uncertainty Quantification for Glioma Segmentation Using Conformal Prediction
-        </a>
-    </h4>
-    <p>
-        Danial Elyassirad, Benyamin Gheiji, <strong>Mahsa Vatanparast</strong>,
-        Amir Mahmoud Ahmadzadeh, Shahriar Faghani.
-        <br>
-        <em>American Journal of Neuroradiology</em>. 2025;46(12):2553–2560.
-    </p>
-</div>
-    <div class="card">
-    <h4>
-        <a href="https://www.ajnr.org/content/46/10/2098.abstract" target="_blank">
-            Predicting 1p/19q codeletion status in glioma using MRI-derived radiomics: A systematic review and meta-analysis of diagnostic accuracy
-        </a>
-    </h4>
+        <a class="btn" href="mailto:mahsa_vatanparast@yahoo.com">Email</a>
+        <a class="btn" href="https://scholar.google.com/citations?user=rEmIJDIAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="btn" href="https://www.linkedin.com/in/mahsa-vatanparast-24314b2a7/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/Mahsa-Vatanparast" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
 
-    <p>
-        Amir Mahmoud Ahmadzadeh, Nima Broomand Lomer, Mohammad Amin Ashoobi,
-        Danial Elyassirad, <strong>Mahsa Vatanparast</strong>, Benyamin Gheiji,
-        Seyed Ali Jalalian, Mehdi Arab, Farrokh Seilanian Toosi,
-        Girish Bathla, Shahriar Faghani.
-        <br>
-        <em>American Journal of Neuroradiology</em>. 2025;46(10):2098.
-    </p>
-</div>
-    <div class="card">
-    <h4>
-        <a href="https://link.springer.com/article/10.1007/s00234-025-03631-z" target="_blank">
-            MRI-derived deep learning models for predicting 1p/19q codeletion status in glioma patients: a systematic review and meta-analysis of diagnostic test accuracy studies
-        </a>
-    </h4>
-    <p>
-        Amir Mahmoud Ahmadzadeh, Nima Broomand Lomer, Mohammad Amin Ashoobi,
-        Danial Elyassirad, Benyamin Gheiji, <strong>Mahsa Vatanparast</strong>,
-        Amirhossein Rostami, Mohammad Ali Abouei Mehrizi, Azadeh Tabari,
-        Girish Bathla, Shahriar Faghani.
-        <br>
-        <em>Neuroradiology</em>. 2025;67:1667–1681.
-    </p>
-</div>
-    <div class="card">
-    <h4>
-        <a href="https://journals.sagepub.com/doi/10.1177/19714009241303052" target="_blank">
-            Predicting Epidural Hematoma Expansion in Traumatic Brain Injury: A Machine Learning Approach
-        </a>
-    </h4>
-    <p>
-        Mohammad Hasanpour, Danial Elyassirad, Benyamin Gheiji,
-        <strong>Mahsa Vatanparast</strong>, Ehsan Keykhosravi, Mehdi Shafiei,
-        Shirin Daneshkhah, Arya Fayyazi, Shahriar Faghani.
-        <br>
-        <em>The Neuroradiology Journal</em>. 2025;38(2):200–206.
-    </p>
-</div>
-    <div class="card">
-    <h4>
-        <a href="https://link.springer.com/article/10.1007/s11547-025-02089-6" target="_blank">
-            Application of deep learning for predicting hematoma expansion in intracerebral hemorrhage using computed tomography scans: a systematic review and meta-analysis of diagnostic accuracy
-        </a>
-    </h4>
-    <p>
-        Amir Mahmoud Ahmadzadeh, Mohammad Amin Ashoobi, Nima Broomand Lomer,
-        Danial Elyassirad, Benyamin Gheiji, <strong>Mahsa Vatanparast</strong>,
-        Girish Bathla, Long Tu.
-        <br>
-        <em>La Radiologia Medica</em>. 2025.
-    </p>
-</div>
-    <div class="card">
-    <h4>
-        <a href="https://link.springer.com/article/10.1186/s12880-025-02040-1" target="_blank">
-            Improving radiomics-based isocitrate dehydrogenase 1 prediction in glioma patients using semi-supervised machine learning models
-        </a>
-    </h4>
-    <p>
-        Amir Mahmoud Ahmadzadeh, Amirhossein Jafarnezhad, Danial Elyassirad,
-        <strong>Mahsa Vatanparast</strong>, Benyamin Gheiji, Shahriar Faghani.
-        <br>
-        <em>BMC Medical Imaging</em>. 2025.
-    </p>
-</div>
-<div class="card">
-    <h4>
-        <a href="https://link.springer.com/article/10.1007/s10143-024-02764-8" target="_blank">
-            Flow diverting stent monotherapy as the best choice in the treatment of intracranial blood blister-like aneurysms: a systematic review
-        </a>
-    </h4>
-    <p>
-        Mohammad Ghorbani, Ehsan Keykhosravi, <strong>Mahsa Vatanparast</strong>,
-        Danial Elyassirad, Farbod Tabasi Kakhki, Benyamin Gheiji,
-        Navid Golchin, Zohreh Zamani, Ghazwan Lafta, Mohammad Hasanpour.
-        <br>
-        <em>Neurosurgical Review</em>. 2024;47(1):513.
-    </p>
-</div>
-    <div class="card">
-    <h4>
-        <a href="https://www.sciencedirect.com/science/article/pii/S002837702400016X" target="_blank">
-            Traumatic middle meningeal artery aneurysm: a case report
-        </a>
-    </h4>
-    <p>
-        Mohammad Ghorbani, Ehsan Keykhosravi, <strong>Mahsa Vatanparast</strong>,
-        Daniel Elyassirad, Navid Golchin, Hojjat Mirsardoo, Mohammad Hasanpour.
-        <br>
-        <em>Neurochirurgie</em>. 2024.
-    </p>
-</div>
-<div class="card">
-    <h4>
-        <a href="https://www.sciencedirect.com/science/article/pii/S1878875023017795" target="_blank">
-            Functional outcome and mortality predictors in patients with cerebral ischemic infarction after decompressive craniectomy: cross-sectional study
-        </a>
-    </h4>
-    <p>
-        Amin Rostami, Daniel Elyassirad, <strong>Mahsa Vatanparast</strong>,
-        Mohammad Ali Abouei Mehrizi, Mohammad Hasanpour, Hamid Rezaee,
-        Amirhosein Haghir, Ehsan Keykhosravi.
-        <br>
-        <em>World Neurosurgery</em>. 2024.
-    </p>
-</div>    
-</section>
+  <section id="focus">
+    <h2>Research</h2>
+    <div>
+      <p>I'm a physician and medical AI researcher focused on uncertainty quantification for medical imaging. My work applies <strong>conformal prediction</strong> and related methods to radiology report generation, glioma segmentation, molecular marker classification and image registration, so that deep learning models can flag low-confidence predictions and become more trustworthy in clinical settings.</p>
+      <p>This work has been recognized with the SIIM Helen and Paul Chang Foundation New Investigator Award and the ASFNR John L. Ulmer Award.</p>
 
-<h4>
-Full Publication List
-</h4>
+      <figure class="demo" aria-labelledby="demo-title" style="margin-left:0;margin-right:0;">
+        <h3 id="demo-title">A prediction with honest error bars</h3>
+        <p class="sub">A model estimates left ventricular ejection fraction from an echocardiogram. Conformal prediction turns that single number into a range that contains the true value at the coverage you choose.</p>
+        <div class="scale" id="scale" aria-hidden="true">
+          <div class="zones"><span class="z1" style="width:33.333%"></span><span class="z2" style="width:16.667%"></span><span class="z3" style="width:50%"></span></div>
+          <span class="tick" style="left:33.333%"></span><span class="tick" style="left:50%"></span>
+          <span class="zl" style="left:16.667%">Reduced (&lt;40%)</span>
+          <span class="zl" style="left:41.667%">Mildly reduced</span>
+          <span class="zl" style="left:75%">Normal (≥50%)</span>
+          <div class="interval" id="iv"></div>
+          <div class="point" id="pt"></div>
+          <div class="point-label" id="ptl">58%</div>
+        </div>
+        <div class="ctrl">
+          <label for="cov">Required coverage</label>
+          <input type="range" id="cov" min="50" max="99" value="90">
+          <output for="cov" id="covOut">90%</output>
+        </div>
+        <div class="verdict" id="verdict" aria-live="polite"></div>
+        <p class="note">Illustrative numbers. The range comes from the model's errors on a held-out calibration set, so it widens when you ask for more certainty.</p>
+      </figure>
+    </div>
+  </section>
 
-<p>
-A complete list of publications is available through my
-<a href="#">Google Scholar profile</a>.
-</p>
+  <section id="selected">
+    <h2>Selected work<small>Uncertainty quantification and open infrastructure</small></h2>
+    <div class="works">
+      <article class="work">
+        <h3><a href="https://link.springer.com/article/10.1007/s10278-026-02179-5" target="_blank" rel="noopener">CONRep: Uncertainty-aware vision-language report drafting using conformal prediction</a></h3>
+        <p class="venue">J Imaging Inform Med, 2026</p>
+        <p>Conformal guarantees for AI-drafted radiology reports, marking findings the model can't support with enough confidence.</p>
+        <span class="ribbon">SIIM 2026 New Investigator Award</span>
+      </article>
+      <article class="work">
+        <h3><a href="https://www.ajnr.org/content/early/2025/11/26/ajnr.A8914" target="_blank" rel="noopener">CONSeg: Voxelwise uncertainty quantification for glioma segmentation using conformal prediction</a></h3>
+        <p class="venue">AJNR Am J Neuroradiol, 2025</p>
+        <p>Voxel-level uncertainty maps that show where a brain tumor segmentation needs a second look.</p>
+        <span class="ribbon">ASFNR 2025 John L. Ulmer Award</span>
+      </article>
+      <article class="work">
+        <h3><a href="https://link.springer.com/article/10.1007/s10278-025-01580-w" target="_blank" rel="noopener">Predicting IDH mutation in glioma patients using deep learning algorithms with conformal prediction</a></h3>
+        <p class="venue">J Imaging Inform Med, 2026</p>
+        <p>Prediction sets for MRI-based IDH classification, making noninvasive molecular profiling more reliable.</p>
+      </article>
+      <article class="work">
+        <h3><a href="https://link.springer.com/article/10.1007/s10278-026-01878-3" target="_blank" rel="noopener">CONReg: Uncertainty-aware medical image registration using conformal prediction</a></h3>
+        <p class="venue">J Imaging Inform Med, 2026</p>
+        <p>Deep image registration that identifies anatomically ambiguous or misaligned regions.</p>
+      </article>
+      <article class="work">
+        <h3><a href="https://arxiv.org/abs/2609.23241" target="_blank" rel="noopener">UQMIA: An open, hands-on tutorial on uncertainty quantification in medical imaging analysis</a></h3>
+        <p class="venue">arXiv, 2026</p>
+        <p>An open teaching resource on uncertainty quantification methods for medical imaging, with a large language model-based assessment of the educational content.</p>
+        <div class="more"><a href="https://uncertainty-quantification-medical-imaging.streamlit.app/" target="_blank" rel="noopener">Try the interactive tutorial</a></div>
+      </article>
+      <article class="work">
+        <h3><a href="https://www.ajnr.org/content/early/2026/04/24/ajnr.A9363.abstract" target="_blank" rel="noopener">NeuroAIHub: An AI-driven framework for automated curation and discovery of neuroradiology datasets</a></h3>
+        <p class="venue">AJNR Am J Neuroradiol, 2026. Co-founder.</p>
+        <p>An open-source registry that helps researchers find and assess neuroradiology datasets.</p>
+        <div class="more">
+          <a href="https://neuroai.streamlit.app/" target="_blank" rel="noopener">Web app</a>
+          <a href="https://github.com/NeuroAIHub-Registry/NeuroAIHub" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://drive.google.com/file/d/1nG2cF6pN9CP4lofSQuYMhFwRZCHMdxeM/view" target="_blank" rel="noopener">Demo video</a>
+        </div>
+      </article>
+    </div>
+  </section>
 
-</div>
+  <section id="honors">
+    <h2>Honors and awards</h2>
+    <ul class="tl">
+      <li class="star"><span class="when">2026</span><span class="what"><strong>SIIM Helen and Paul Chang Foundation New Investigator Award</strong> (USA) for CONRep</span></li>
+      <li class="star"><span class="when">2025</span><span class="what"><strong>John L. Ulmer Award, ASFNR</strong> (USA) for CONSeg</span></li>
+      <li><span class="when">2025</span><span class="what"><strong>Rank 3</strong> among presented abstracts, Sharif AIH Congress</span></li>
+      <li><span class="when">2024</span><span class="what"><strong>Rank 1</strong>, best student idea in the final round of the Artificial Intelligence in Medical Sciences Idea Challenge</span></li>
+      <li><span class="when">2024</span><span class="what"><strong>Rank 1</strong> among student presentations, Annual Congress of the Iranian Medical Council</span></li>
+    </ul>
+  </section>
 
+  <section id="experience">
+    <h2>Experience</h2>
+    <div>
+      <ul class="plain">
+        <li><strong>Research assistant</strong>, Transplant Research Center, Montaserieh Hospital</li>
+        <li>Co-led <strong>10+ published research projects</strong> in AI for medical imaging since 2024</li>
+        <li><strong>Co-founded and led NeuroAIHub</strong>, an open-source, AI-driven registry for neuroradiology dataset discovery, published in the <em>American Journal of Neuroradiology</em></li>
+        <li><strong>Peer reviewer</strong> for <em>BioMedical Engineering Online</em> (Q1), <em>European Journal of Medical Research</em> (Q2) and <em>Karbala International Journal of Modern Science</em> (Q2)</li>
+      </ul>
+      <h3 class="sub-h">Grants</h3>
+      <ul class="plain">
+        <li><strong>15+ research grants</strong> funded by the Vice Chancellery for Research, Mashhad University of Medical Sciences</li>
+        <li><strong>Research grant</strong> from the Transplant Research Center, Montaserieh Hospital</li>
+      </ul>
+      <h3 class="sub-h">Education</h3>
+      <ul class="tl">
+        <li><span class="when">2026</span><span class="what"><strong>Doctor of Medicine (MD)</strong>, Mashhad University of Medical Sciences, Iran</span></li>
+        <li><span class="when">2013–2019</span><span class="what"><strong>NODET/Sampad</strong>, Iran's selective national program for gifted students <em>(entered through a competitive nationwide exam)</em></span></li>
+      </ul>
+    </div>
+  </section>
 
-</section>
-<section id="awards">
+  <section id="publications">
+    <h2>Publications<small>17 papers and preprints, 2 under review</small></h2>
+    <div>
+      <div class="pub-filter" role="group" aria-label="Filter publications">
+        <button type="button" data-f="all" aria-pressed="true">All</button>
+        <button type="button" data-f="uq" aria-pressed="false">Uncertainty quantification</button>
+      </div>
+      <div id="pubWrap">
+        <h3 class="year">2026</h3>
+        <ul class="pubs">
+          <li data-uq><a class="t" href="https://link.springer.com/article/10.1007/s10278-026-02179-5" target="_blank" rel="noopener">CONRep: uncertainty-aware vision-language report drafting using conformal prediction</a><span class="a">Elyassirad D, Gheiji B, <b>Vatanparast M</b>, Ahmadzadeh AM, Agah SA, Moassefi M, Tavakoli M, Faghani S. <span class="j">J Imaging Inform Med.</span><span class="uq">UQ</span></span></li>
+          <li data-uq><a class="t" href="https://link.springer.com/article/10.1007/s10278-025-01580-w" target="_blank" rel="noopener">Predicting IDH mutation in glioma patients using deep learning algorithms with conformal prediction</a><span class="a">Elyassirad D, Gheiji B, <b>Vatanparast M</b>, Ahmadzadeh AM, Masoudi M, Gholami M, Moassefi M, Faghani S. <span class="j">J Imaging Inform Med.</span><span class="uq">UQ</span></span></li>
+          <li data-uq><a class="t" href="https://link.springer.com/article/10.1007/s10278-026-01878-3" target="_blank" rel="noopener">CONReg: uncertainty-aware medical image registration using conformal prediction</a><span class="a">Gheiji B, Elyassirad D, <b>Vatanparast M</b>, Ahmadzadeh AM, Faghani S, Tavakoli M. <span class="j">J Imaging Inform Med.</span><span class="uq">UQ</span></span></li>
+          <li data-uq><a class="t" href="https://arxiv.org/abs/2609.23241" target="_blank" rel="noopener">UQMIA: an open, hands-on tutorial on uncertainty quantification in medical imaging analysis with large language model-based assessment of educational content</a><span class="a">Gheiji B, Elyassirad D, <b>Vatanparast M</b>, Tavakoli M, Faghani S. <span class="j">arXiv.</span><span class="uq">UQ</span></span></li>
+          <li><a class="t" href="https://www.ajnr.org/content/early/2026/04/24/ajnr.A9363.abstract" target="_blank" rel="noopener">NeuroAIHub: an AI-driven framework for automated curation and discovery of neuroradiology datasets</a><span class="a">Gheiji B, Moradi S, <b>Vatanparast M</b>, Shokrani S, Bagherzadeh MA, Elyassirad D, Akinmuleya OI, Goodarzi S, Heidari-Foroozan M, Moassefi M, Rudie JD, Calabrese E, Jain R, Faghani S. <span class="j">AJNR Am J Neuroradiol.</span></span></li>
+          <li><a class="t" href="https://www.sciencedirect.com/science/article/pii/S0899707126001099" target="_blank" rel="noopener">Radiomics and deep learning models for predicting glioma p53 status: a diagnostic accuracy systematic review and meta-analysis</a><span class="a">Ahmadzadeh AM, Ashoobi MA, Lomer NB, <b>Vatanparast M</b>, Gheiji B, Elyassirad D, Faghani S. <span class="j">Clin Imaging.</span></span></li>
+          <li><a class="t" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13144621/" target="_blank" rel="noopener">Hyperventilation-induced high-amplitude rhythmic slowing and its impact on migraine frequency in children: a retrospective observational cohort study</a><span class="a">Mohammadi M, Badv RS, Rezaei Z, Ashrafi MR, Zamani GR, Heidari M, <b>Vatanparast M</b>, Eslamiyeh H, Ahangari N, Barazandeh Shirvan B, Beiraghi Toosi M. <span class="j">Iran J Child Neurol.</span></span></li>
+        </ul>
+        <h3 class="year">2025</h3>
+        <ul class="pubs">
+          <li data-uq><a class="t" href="https://www.ajnr.org/content/early/2025/11/26/ajnr.A8914" target="_blank" rel="noopener">CONSeg: voxelwise uncertainty quantification for glioma segmentation using conformal prediction</a><span class="a">Elyassirad D, Gheiji B, <b>Vatanparast M</b>, Ahmadzadeh AM, Faghani S. <span class="j">AJNR Am J Neuroradiol.</span><span class="uq">UQ</span></span></li>
+          <li><a class="t" href="https://journals.sagepub.com/doi/10.1177/19714009241303052" target="_blank" rel="noopener">Predicting epidural hematoma expansion in traumatic brain injury: a machine learning approach</a><span class="a">Hasanpour M, Elyassirad D, Gheiji B, <b>Vatanparast M</b>, Keykhosravi E, Shafiei M, Daneshkhah S, Fayyazi A, Faghani S. <span class="j">Neuroradiol J.</span></span></li>
+          <li><a class="t" href="https://link.springer.com/article/10.1186/s12880-025-02040-1" target="_blank" rel="noopener">Improving radiomics-based isocitrate dehydrogenase 1 prediction in glioma patients using semi-supervised machine learning models</a><span class="a">Ahmadzadeh AM, Jafarnezhad A, Elyassirad D, <b>Vatanparast M</b>, Gheiji B, Faghani S. <span class="j">BMC Med Imaging.</span></span></li>
+          <li><a class="t" href="https://www.ajnr.org/content/46/10/2098.abstract" target="_blank" rel="noopener">Predicting 1p/19q codeletion status in glioma using MRI-derived radiomics: a systematic review and meta-analysis of diagnostic accuracy</a><span class="a">Ahmadzadeh AM, Lomer NB, Ashoobi MA, Elyassirad D, Gheiji B, <b>Vatanparast M</b>, et al. <span class="j">AJNR Am J Neuroradiol.</span></span></li>
+          <li><a class="t" href="https://link.springer.com/article/10.1007/s00234-025-03631-z" target="_blank" rel="noopener">MRI-derived deep learning models for predicting 1p/19q codeletion status in glioma patients: a systematic review and meta-analysis of diagnostic test accuracy studies</a><span class="a">Ahmadzadeh AM, Broomand Lomer N, Ashoobi MA, Elyassirad D, Gheiji B, <b>Vatanparast M</b>, Rostami A, Abouei Mehrizi MA, Tabari A, Bathla G, Faghani S. <span class="j">Neuroradiology.</span></span></li>
+          <li><a class="t" href="https://link.springer.com/article/10.1007/s11547-025-02089-6" target="_blank" rel="noopener">Application of deep learning for predicting hematoma expansion in intracerebral hemorrhage using computed tomography scans: a systematic review and meta-analysis</a><span class="a">Ahmadzadeh AM, Ashoobi MA, Broomand Lomer N, Elyassirad D, Gheiji B, <b>Vatanparast M</b>, Bathla G, Tu L. <span class="j">Radiol Med.</span></span></li>
+        </ul>
+        <h3 class="year">2024</h3>
+        <ul class="pubs">
+          <li><span class="t">Comparative analysis of 2D and 3D ResNet architectures for IDH and MGMT mutation detection in glioma patients</span><span class="a">Elyassirad D, Gheiji B, <b>Vatanparast M</b>, Ahmadzadeh AM, Kamandi N, Soleimanian A, Salehi S, Faghani S. <span class="j">arXiv.</span></span></li>
+          <li><a class="t" href="https://www.sciencedirect.com/science/article/pii/S1878875023017795" target="_blank" rel="noopener">Functional outcome and mortality predictors in patients with cerebral ischemic infarction after decompressive craniectomy: cross-sectional study</a><span class="a">Rostami A, Elyassirad D, <b>Vatanparast M</b>, Mehrizi MA, Hasanpour M, Rezaee H, Haghir A, Keykhosravi E. <span class="j">World Neurosurg.</span></span></li>
+          <li><a class="t" href="https://link.springer.com/article/10.1007/s10143-024-02764-8" target="_blank" rel="noopener">Flow diverting stent monotherapy as the best choice in the treatment of intracranial blood blister-like aneurysms: a systematic review</a><span class="a">Ghorbani M, Keykhosravi E, <b>Vatanparast M</b>, Elyassirad D, Kakhki FT, Gheiji B, Golchin N, Zamani Z, Lafta G, Hasanpour M. <span class="j">Neurosurg Rev.</span></span></li>
+          <li><a class="t" href="https://www.sciencedirect.com/science/article/pii/S002837702400016X" target="_blank" rel="noopener">Traumatic middle meningeal artery aneurysm: a case report</a><span class="a">Ghorbani M, Keykhosravi E, <b>Vatanparast M</b>, Elyassirad D, Golchin N, Mirsardoo H, Hasanpour M. <span class="j">Neurochirurgie.</span></span></li>
+        </ul>
+        <h3 class="year">Under review</h3>
+        <ul class="pubs">
+          <li data-uq><span class="t">Conformalized semi-supervised learning for medical imaging</span><span class="a"><b>Vatanparast M</b>, et al.<span class="uq">UQ</span></span></li>
+          <li><span class="t">Comparison of the performance of two decision-making support tools, ChatGPT and UpToDate, in the management of complex medical cases</span><span class="a"><b>Vatanparast M</b>, et al.</span></li>
+        </ul>
+      </div>
+      <p style="margin-top:22px;" class="muted">Citations and full texts are on <a href="https://scholar.google.com/citations?user=rEmIJDIAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
+    </div>
+  </section>
 
-<h3>Honors & Awards</h3>
+  <section id="talks">
+    <h2>Conference talks</h2>
+    <ul class="tl">
+      <li class="star"><span class="when">SIIM 2026 · Oral · Award winner</span><span class="what">CONRep: Improving reliability of vision-language report generation via conformal prediction</span></li>
+      <li><span class="when">SIIM 2026 · Poster</span><span class="what">Uncertainty quantification for vision-language model classification in medical imaging</span></li>
+      <li><span class="when">RSNA 2025 · Oral</span><span class="what">NeuroAIHub: An AI-driven framework for automated discovery and retrieval of neuroradiology datasets</span></li>
+      <li class="star"><span class="when">ASFNR 2025 · Oral · Award winner</span><span class="what">CONSeg: Voxelwise uncertainty quantification for glioma segmentation using conformal prediction</span></li>
+      <li><span class="when">AIH Congress 2024 · Oral</span><span class="what">Improving IDH mutation prediction using conformal prediction</span></li>
+      <li><span class="when">CARDIOHTMEDIC 2024 · Oral</span><span class="what">Interpretable deep learning model for uncertainty-based left ventricle ejection fraction estimation in echocardiography</span></li>
+      <li><span class="when">ASFNR 2024 · Poster</span><span class="what">Machine learning and deep learning performance in predicting IDH mutation, 1p/19q co-deletion and MGMT promoter status among glioma patients using MRI</span></li>
+      <li><span class="when">Iranian Medical Council Annual Congress 2024 · Oral</span><span class="what">Predicting epidural hematoma expansion from brain CT</span></li>
+    </ul>
+  </section>
 
+  <section id="skills">
+    <h2>Skills</h2>
+    <div>
+      <p class="skill-h">Methods</p>
+      <div class="chips key"><span>Conformal prediction</span><span>Uncertainty quantification</span><span>Deep learning (CNNs)</span><span>LLMs</span><span>VLMs</span><span>Machine learning</span></div>
+      <p class="skill-h">Medical imaging</p>
+      <div class="chips"><span>MRI / CT image processing</span><span>Segmentation</span><span>Registration</span><span>Feature extraction</span></div>
+      <p class="skill-h">Tools</p>
+      <div class="chips"><span>Python</span><span>PyTorch</span><span>TensorFlow</span><span>scikit-learn</span><span>pandas</span><span>NumPy</span></div>
+      <p class="skill-h">Research</p>
+      <div class="chips"><span>Systematic reviews</span><span>Network meta-analysis</span><span>Statistical modeling</span></div>
+      <p class="skill-h">Content creation</p>
+      <div class="chips"><span>Medical and scientific content</span><span>Visual content design</span><span>Video editing</span></div>
+      <p class="skill-h">Languages</p>
+      <div class="chips"><span>Persian (native)</span><span>English (fluent)</span><span>French (fluent)</span></div>
+    </div>
+  </section>
 
-<div class="card highlight">
+  <section id="references">
+    <h2>References</h2>
+    <div class="refs">
+      <div class="ref">
+        <h3>Dr. Shahriar Faghani</h3>
+        <p>Department of Radiology, University of Pennsylvania, Philadelphia, PA, USA; Adjunct Assistant Professor, Department of Radiology, Mayo Clinic, MN, USA</p>
+        <div class="ico">
+          <a href="mailto:Faghani.Shahriar@mayo.edu" aria-label="Email Dr. Faghani" title="Faghani.Shahriar@mayo.edu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+          <a href="https://www.linkedin.com/in/shahriar-faghani-7b468082/" target="_blank" rel="noopener" aria-label="Dr. Faghani on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8.5h-3V20h3V8.5ZM5 3.5a1.75 1.75 0 1 0 0 3.5 1.75 1.75 0 0 0 0-3.5ZM20.5 13.4c0-3-1.6-4.9-4.2-4.9-1.4 0-2.4.7-2.8 1.4V8.5h-3V20h3v-6.1c0-1.4.7-2.4 2-2.4s1.9 1 1.9 2.4V20h3.1v-6.6Z"/></svg></a>
+          <a href="https://scholar.google.com/citations?user=6HV5eJAAAAAJ" target="_blank" rel="noopener" aria-label="Dr. Faghani on Google Scholar" title="Google Scholar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5 12 4l10 5.5-10 5.5L2 9.5Z"/><path d="M6 12v4.5c0 1.4 2.7 3 6 3s6-1.6 6-3V12"/></svg></a>
+        </div>
+      </div>
+      <div class="ref">
+        <h3>Dr. Mana Moassefi</h3>
+        <p>Adjunct Assistant Professor, Department of Radiology, Mayo Clinic, MN, USA; Diagnostic Radiology Resident, Mayo Clinic, Rochester, MN, USA</p>
+        <div class="ico">
+          <a href="mailto:moassefi.mana@mayo.edu" aria-label="Email Dr. Moassefi" title="moassefi.mana@mayo.edu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+          <a href="https://www.linkedin.com/in/mana-moassefi-a6b589119/" target="_blank" rel="noopener" aria-label="Dr. Moassefi on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8.5h-3V20h3V8.5ZM5 3.5a1.75 1.75 0 1 0 0 3.5 1.75 1.75 0 0 0 0-3.5ZM20.5 13.4c0-3-1.6-4.9-4.2-4.9-1.4 0-2.4.7-2.8 1.4V8.5h-3V20h3v-6.1c0-1.4.7-2.4 2-2.4s1.9 1 1.9 2.4V20h3.1v-6.6Z"/></svg></a>
+          <a href="https://scholar.google.com/citations?user=JunFf6YAAAAJ" target="_blank" rel="noopener" aria-label="Dr. Moassefi on Google Scholar" title="Google Scholar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5 12 4l10 5.5-10 5.5L2 9.5Z"/><path d="M6 12v4.5c0 1.4 2.7 3 6 3s6-1.6 6-3V12"/></svg></a>
+        </div>
+      </div>
+      <div class="ref">
+        <h3>Dr. Meysam Tavakoli</h3>
+        <p>Assistant Professor, Department of Radiation Oncology, Emory University, Atlanta, GA, USA</p>
+        <div class="ico">
+          <a href="mailto:meysamtavakkoli@gmail.com" aria-label="Email Dr. Tavakoli" title="meysamtavakkoli@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+          <a href="https://www.linkedin.com/in/meysam-tavakoli-aa853228/" target="_blank" rel="noopener" aria-label="Dr. Tavakoli on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8.5h-3V20h3V8.5ZM5 3.5a1.75 1.75 0 1 0 0 3.5 1.75 1.75 0 0 0 0-3.5ZM20.5 13.4c0-3-1.6-4.9-4.2-4.9-1.4 0-2.4.7-2.8 1.4V8.5h-3V20h3v-6.1c0-1.4.7-2.4 2-2.4s1.9 1 1.9 2.4V20h3.1v-6.6Z"/></svg></a>
+          <a href="https://scholar.google.com/citations?user=2KruThAAAAAJ" target="_blank" rel="noopener" aria-label="Dr. Tavakoli on Google Scholar" title="Google Scholar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5 12 4l10 5.5-10 5.5L2 9.5Z"/><path d="M6 12v4.5c0 1.4 2.7 3 6 3s6-1.6 6-3V12"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<h4>John L. Ulmer Award — ASFNR (2025)</h4>
-
-<p>
-Recognized for research contributions in artificial intelligence
-and medical imaging.
-</p>
-
-</div>
-
-
-<div class="card highlight">
-
-<h4>Helen and Paul Chang Foundation New Investigator Award — SIIM (2026)</h4>
-
-<p>
-Awarded for innovative research in artificial intelligence
-applications in medical imaging.
-</p>
-
-</div>
-
-
-</section>
-
-
-
-<section id="education">
-
-<h3>Education</h3>
-
-
-<div class="card">
-
-<h4>Doctor of Medicine (MD)</h4>
-
-<p>
-Mashhad University of Medical Sciences
-</p>
-
-<p>
-Graduated: 2026
-</p>
-
-</div>
-
-
-</section>
-    <section id="skills">
-
-<h3>Technical Skills</h3>
-
-
-<div class="card highlight">
-
-<h4>Programming & Machine Learning</h4>
-
-<p>
-Python · PyTorch · TensorFlow · scikit-learn · LightGBM
-</p>
-
-</div>
-
-
-<div class="card highlight">
-
-<h4>Artificial Intelligence</h4>
-
-<p>
-Deep Learning · Computer Vision · Medical Image Analysis ·
-Uncertainty Quantification · Conformal Prediction ·
-Semi-supervised Learning
-</p>
-
-</div>
-
-
-<div class="card highlight">
-
-<h4>Research Areas</h4>
-
-<p>
-Neuroimaging · Radiogenomics · Vision-Language Models ·
-Clinical AI Translation
-</p>
-
-</div>
-
-
-</section>
-
-
-
-<section id="contact">
-
-<h3>Contact</h3>
-
-<p>
-I am interested in collaborations in medical imaging,
-trustworthy AI, and clinical artificial intelligence.
-</p>
-
-
-<p>
-<a href="#">Google Scholar</a> |
-<a href="#">LinkedIn</a> |
-<a href="#">GitHub</a>
-</p>
-
-
-</section>
-
-
+</main>
 
 <footer>
-
-© 2026 Mahsa Vatanparast
-
+  <div class="wrap">Mahsa Vatanparast, MD. Mashhad, Iran. <a href="mailto:mahsa_vatanparast@yahoo.com">mahsa_vatanparast@yahoo.com</a></div>
 </footer>
+
+<script>
+/* ---- LVEF conformal interval demo (split conformal on synthetic calibration residuals) ---- */
+(function(){
+  var seed = 7; function rnd(){ seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+  var res = [];
+  for (var i = 0; i < 200; i++){ var u = rnd(), v = rnd(); res.push(Math.abs(4.2 * Math.sqrt(-2*Math.log(u)) * Math.cos(2*Math.PI*v))); }
+  res.sort(function(a,b){ return a-b; });
+  var MIN = 20, MAX = 80, point = 58;
+  function pos(x){ return ((Math.min(MAX, Math.max(MIN, x)) - MIN) / (MAX - MIN)) * 100; }
+  var iv = document.getElementById("iv"), pt = document.getElementById("pt"), ptl = document.getElementById("ptl");
+  var slider = document.getElementById("cov"), out = document.getElementById("covOut"), verdict = document.getElementById("verdict");
+  pt.style.left = pos(point) + "%"; ptl.style.left = pos(point) + "%";
+  function update(){
+    var c = slider.value / 100, n = res.length;
+    var k = Math.min(n, Math.ceil((n + 1) * c)) - 1;
+    var q = res[k], lo = point - q, hi = point + q;
+    iv.style.left = pos(lo) + "%"; iv.style.width = (pos(hi) - pos(lo)) + "%";
+    out.textContent = slider.value + "%";
+    var crosses = lo < 50;
+    iv.classList.toggle("risky", crosses); verdict.classList.toggle("risky", crosses);
+    var range = "<strong>Range: " + Math.round(lo) + "–" + Math.round(hi) + "%.</strong> ";
+    verdict.innerHTML = range + (crosses
+      ? "The range dips below 50%, so the model can't rule out reduced function. This study should be measured by hand."
+      : "The whole range sits in the normal zone, so the estimate is safe to report as normal.");
+  }
+  slider.addEventListener("input", update); update();
+})();
+
+/* ---- publication filter ---- */
+(function(){
+  var wrap = document.getElementById("pubWrap");
+  var buttons = document.querySelectorAll(".pub-filter button");
+  wrap.querySelectorAll(".year").forEach(function(h){
+    var list = h.nextElementSibling;
+    if (!list.querySelector("li[data-uq]")) h.classList.add("empty");
+    list.classList.toggle("empty", !list.querySelector("li[data-uq]"));
+  });
+  buttons.forEach(function(b){
+    b.addEventListener("click", function(){
+      buttons.forEach(function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      wrap.classList.toggle("hide-nonuq", b.dataset.f === "uq");
+    });
+  });
+})();
+
+/* ---- theme toggle ---- */
+(function(){
+  var btn = document.getElementById("themeToggle"), root = document.documentElement;
+  function isDark(){ var t = root.getAttribute("data-theme"); return t ? t === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches; }
+  function label(){ btn.setAttribute("aria-label", isDark() ? "Switch to light mode" : "Switch to dark mode"); }
+  try { var s = localStorage.getItem("theme"); if (s) root.setAttribute("data-theme", s); } catch(e){}
+  label();
+  btn.addEventListener("click", function(){
+    var next = isDark() ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch(e){}
+    label();
+  });
+})();
+</script>
 </body>
 </html>
-</section>
